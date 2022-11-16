@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Dashboard from './Dashboard';
-// import Dataset from './Dataset';
-import { mockTasks } from './mockTasks';
+import Dataset from './dataset';
+// import { mockTasks } from './mockTasks';
 
 const Container = () => {
-  const [dashboard, setDashboard] = useState(mockTasks);
+  const [dashboard, setDashboard] = useState(Dataset);
   return (
     <div className="Container">
       <>
