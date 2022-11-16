@@ -97,8 +97,12 @@ const Dashboard = () => {
           <Container {...provided.droppableProps} ref={provided.innerRef}>
             {data.columnOrder.map((id, index) => {
               const column = data.columns[id];
-              const tasks = column.taskIds.map((taskId) => data.tasks[taskId]);
-
+              const tasks = [];
+              column.taskIds.map((taskId) => Object.entries(data.tasks).map(entry => {
+                if (entry[1]["id"] == taskId) {
+                  tasks.push(entry[1])
+                }
+              }))
               return (
                 <Column
                   key={column.id}

@@ -9,10 +9,11 @@ const Container = styled.div`
   background-color: ${(props) => (props.isDragging ? '#e0ffe0' : 'white')};
 `;
 function Task(props) {
+  console.log(props);
   return (
     <Draggable draggableId={props.task.id} index={props.index}>
-      {(provided, snapshot) => (
-        <Container
+      {(provided, snapshot) => {
+        return <Container
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
@@ -20,7 +21,7 @@ function Task(props) {
         >
           {props.task.content}
         </Container>
-      )}
+      }}
     </Draggable>
   );
 }

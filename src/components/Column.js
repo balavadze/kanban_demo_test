@@ -22,6 +22,7 @@ const TaskList = styled.div`
 `;
 
 function Column(props) {
+  // console.log(props);
   return (
     <Draggable draggableId={props.column.id} index={props.index}>
       {(provided) => (
@@ -34,9 +35,7 @@ function Column(props) {
                 {...provided.droppableProps}
                 isDraggingOver={snapshot.isDraggingOver}
               >
-                {props.tasks.map((task, index) => (
-                  <Task key={task.id} task={task} index={index} />
-                ))}
+                {props.tasks.map((task, index) => <Task key={task.id} task={task} index={index} />)}
                 {provided.placeholder}
               </TaskList>
             )}
